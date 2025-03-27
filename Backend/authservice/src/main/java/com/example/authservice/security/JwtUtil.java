@@ -9,10 +9,16 @@ import java.util.Base64;
 
 @Component
 public class JwtUtil {
-    private static final String SECRET = "my_super_secret_key_which_is_at_least_32_bytes_long"; // ✅ Use the same key everywhere
+    private static final String SECRET = "my_super_secret_key_which_is_at_least_32_bytes_long";
     private static final Key SECRET_KEY = Keys.hmacShaKeyFor(SECRET.getBytes());
     private static final long EXPIRATION_TIME = 3600000; // 1 hour
 
+
+    /**
+     *
+     * @param username
+     * @return
+     */
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
@@ -22,6 +28,11 @@ public class JwtUtil {
                 .compact();
     }
 
+    /**
+     *
+     * @param token
+     * @return
+     */
     public String extractUsername(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(SECRET_KEY)
@@ -31,6 +42,11 @@ public class JwtUtil {
                 .getSubject();
     }
 
+    /**
+     *
+     * @param token
+     * @return
+     */
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()

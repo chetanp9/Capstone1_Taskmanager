@@ -26,6 +26,11 @@ public class AuthController {
         this.jwtUtil = jwtUtil;
     }
 
+    /**
+     *
+     * @param requestBody
+     * @return
+     */
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody Map<String, String> requestBody) {
         String username = requestBody.get("username");
@@ -50,6 +55,12 @@ public class AuthController {
         userRepository.save(user);
         return ResponseEntity.ok("User registered successfully!");
     }
+
+    /**
+     *
+     * @param requestBody
+     * @return
+     */
     @PostMapping("/login")
     public ResponseEntity<Map<String, String>> login(@RequestBody @NotNull Map<String, String> requestBody) {
         String username = requestBody.get("username");
@@ -68,11 +79,16 @@ public class AuthController {
             return ResponseEntity.status(401).body(Map.of("error", "Invalid credentials"));
         }
     }
+
+    /**
+     *
+     * @param username
+     * @return
+     */
     @GetMapping("/userid")
     public ResponseEntity<Long> getUserIdByUsername(@RequestParam String username) {
         Optional<User> user = userRepository.findByUsername(username);
         return user.map(value -> ResponseEntity.ok(value.getId()))
                 .orElseGet(() -> ResponseEntity.status(404).body(null));
     }
-
 }
