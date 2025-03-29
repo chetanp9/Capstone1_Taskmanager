@@ -1,0 +1,6 @@
+com.example.taskservice
+com.example.taskservice.controller
+com.example.taskservice.model
+com.example.taskservice.repository
+com.example.taskservice.security
+com.example.taskservice.services

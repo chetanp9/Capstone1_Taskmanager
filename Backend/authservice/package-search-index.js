@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.example.authservice"},{"l":"com.example.authservice.controller"},{"l":"com.example.authservice.model"},{"l":"com.example.authservice.repository"},{"l":"com.example.authservice.security"},{"l":"com.example.authservice.service"}];updateSearchResults();

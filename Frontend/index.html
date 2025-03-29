@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Auth</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">📋 Task Manager</div>
+                <div class="auth-subtitle" id="formSubtitle">Sign in to manage your tasks</div>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" id="loginUsername" class="form-control" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+            </form>
+
+            <!-- Registration Form  -->
+            <form id="registerForm" class="auth-form" style="display: none;">
+                <div class="form-group">
+                    <label for="registerUsername">Username</label>
+                    <input type="text" id="registerUsername" class="form-control" placeholder="Choose a username" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" class="form-control" placeholder="Choose a password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Register</button>
+            </form>
+
+            <div class="form-footer">
+                <span id="toggleText">Don't have an account? <a href="#"></a></span>
+            </div>
+            
+        </div>
+    </div>
+    <script src="auth.js"></script>
+
+</body>
+</html>

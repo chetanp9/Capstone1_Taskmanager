@@ -1,0 +1,6 @@
+com.example.authservice
+com.example.authservice.controller
+com.example.authservice.model
+com.example.authservice.repository
+com.example.authservice.security
+com.example.authservice.service

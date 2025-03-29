@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Dashboard -->
+    <div id="dashboardPage" class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>📋 Task Manager</h2>
+                <p>Hello, <span id="userGreeting">User</span></p>
+            </div>
+            <div class="sidebar-nav">
+                <div class="nav-item active">📊 Dashboard</div>
+            </div>
+            <div class="sidebar-footer">
+                <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary" onclick="openTaskModal()">✚ Add New Task</button>
+                </div>
+            </div>
+
+            <!-- Dashboard Stats -->
+            <div class="dashboard-stats">
+                <div class="stat-card total-tasks">
+                    <h3>Total Tasks</h3>
+                    <div class="stat-value" id="totalTasksCount">0</div>
+                </div>
+                <div class="stat-card pending-tasks">
+                    <h3>Pending Tasks</h3>
+                    <div class="stat-value" id="pendingTasksCount">0</div>
+                </div>
+                <div class="stat-card completed-tasks">
+                    <h3>Completed Tasks</h3>
+                    <div class="stat-value" id="completedTasksCount">0</div>
+                </div>
+                <div class="stat-card overdue-tasks">
+                    <h3>Overdue Tasks</h3>
+                    <div class="stat-value" id="overdueTasksCount">0</div>
+                </div>
+                <div class="stat-card Blocker-tasks">
+                    <h3>Blocker Tasks</h3>
+                    <div class="stat-value" id="blockerTasksCount">0</div>
+                </div>
+            </div>
+
+            <!-- Task Filter -->
+          <!-- Task Filter (Fixed ENUM Values) -->
+<div class="task-filter">
+    <label for="filterTasks">Filter Tasks:</label>
+    <select id="filterTasks" class="form-control">
+        <option value="ALL">All Tasks</option>
+        <option value="TO_DO">Pending Tasks</option>
+        <option value="IN_PROGRESS">In Progress</option>
+        <option value="DONE">Completed Tasks</option>
+        <option value="OVERDUE">Overdue Tasks</option>
+        <option value="BLOCKED">Blocked Tasks</option> <!-- ✅ Fixed ENUM Value -->
+    </select>
+</div>
+
+
+            <!-- Task List -->
+            <div class="task-board">
+                <ul id="taskList" class="task-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div id="taskModal" class="modal">
+            <div class="modal-header">
+                <div id="modalTitle" class="modal-title">New Task</div>
+                <button class="close-modal" onclick="closeTaskModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="taskForm">
+                    <input type="hidden" id="taskId">
+                    <div class="form-group">
+                        <label for="taskDescription">Task Description</label>
+                        <input type="text" id="taskDescription" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskDueDate">Due Date</label>
+                        <input type="date" id="taskDueDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskPriority">Priority</label>
+                        <select id="taskPriority" class="form-control">
+                            <option value="LOW">LOW</option>
+                            <option value="MEDIUM">MEDIUM</option>
+                            <option value="HIGH">HIGH</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskStatus">Status</label>
+                        <select id="taskStatus" class="form-control">
+                            <option value="TO_DO">TO_DO</option>
+                            <option value="IN_PROGRESS">IN_PROGRESS</option>
+                            <option value="DONE">DONE</option>
+                            <option value="BLOCKED">BLOCKED</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="saveTaskBtn" class="btn btn-primary">Create Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="tasks.js"></script>
+</body>
+</html>
